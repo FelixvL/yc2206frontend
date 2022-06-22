@@ -1,0 +1,27 @@
+
+<script>
+    function mijnfunctie(){
+        //alert("het is gelukt");
+        // XMLHttpRequest   ouder
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4){
+                var dediv = document.getElementById("onzeuitkomst");
+                var antwoord = this.responseText;
+                var hetantwoord = JSON.parse(this.responseText);
+                dediv.innerHTML = hetantwoord.naam; // objecten  NIETSTRING
+            }
+        }
+        xhr.open("GET","http://localhost:8082/twee", true);
+        xhr.send();
+    }
+
+</script>
+
+
+<b>iets</b>iets
+reference guide
+<button onclick="mijnfunctie()"> Klik hier </button>
+<div id="onzeuitkomst">
+
+</div>
