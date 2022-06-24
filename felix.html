@@ -53,6 +53,22 @@
         })
        
     }
+    function quotevandedag(){
+        fetch("http://localhost:5000/felixeerste")
+        .then( a => a.json())
+        .then( data => showQuote(data))
+    }
+    function showQuote(deQuote){
+        for(var x =0; x < deQuote.length; x++){
+            document.getElementById("pythondata").innerHTML += "<h1>"+deQuote[x][1]+" - "+deQuote[x][2]+"</h1>";
+        }
+    }
+    function opslaan(){
+        var dequote = document.getElementById("nwquote").value;
+        fetch("http://localhost:5000/aanmakenquote/"+dequote)
+      
+    }
+
 </script>
 
 <input placeholder="naam maaltijd" id="invoerveldnaam">
@@ -65,3 +81,9 @@
 </div>
 
 </div>
+<hr><hr>
+
+<h1>PYTHON</h1>
+<button onclick="quotevandedag()">geef me spul</button>
+<div id="pythondata"></div>
+Nieuwe quote<input id="nwquote"><button onclick="opslaan()">opslaan</button>
