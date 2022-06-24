@@ -1,5 +1,7 @@
 
 <script>
+    window.onload = toonallemaaltijden;
+
     function mijnfunctie(){
         //alert("het is gelukt");
         // XMLHttpRequest   ouder
@@ -29,14 +31,37 @@
         xhr.setRequestHeader("Content-Type","application/json");
         xhr.send(maaltijdJSON);
     }
-
+    function toonallemaaltijden(){
+        fetch("http://localhost:8082/felixallemaaltijden")
+            .then( res => res.json())
+            .then( data => maakMaaltijdTabel(data))
+    }
+    function maakMaaltijdTabel(tabelData){
+        let detabelString = "<table>";
+        for(let x = 0; x<tabelData.length; x++){
+            detabelString += `<tr><td>${tabelData[x].naam}</td><td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td></tr>`
+        }
+        detabelString += "</table>";
+        document.getElementById("allemaaltijdentabel").innerHTML = detabelString;
+    }
+    function verwijderMaaltijd(maaltijdid){
+        console.log(maaltijdid);
+        fetch("http://localhost:8082/verwijdermaaltijd/"+maaltijdid , {
+            method: 'DELETE'
+        }).then( x =>{
+            toonallemaaltijden()
+        })
+       
+    }
 </script>
 
 <input placeholder="naam maaltijd" id="invoerveldnaam">
 <input type="button" onclick="maaltijdtoevoegen()" value="voeg maaltijd toe">
-<b>iets</b>iets
-reference guide
-<button onclick="mijnfunctie()"> Klik hier </button>
-<div id="onzeuitkomst">
+
+
+<hr><hr>
+<div id="allemaaltijdentabel">
+
+</div>
 
 </div>
