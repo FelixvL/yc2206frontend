@@ -15,28 +15,25 @@
         xhr.open("GET","http://localhost:8082/twee", true);
         xhr.send();
     }
-
-    function maaltijdToevoegen(){
+    function maaltijdtoevoegen(){
         var maaltijd = {}
-        maaltijd.naam = document.getElementById("invoerveldnaam").value
-        var maaltijdJSON = JSON.stringify(maaltijd)
+        maaltijd.naam = document.getElementById("invoerveldnaam").value;
+        var maaltijdJSON = JSON.stringify(maaltijd);
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(this.readyState == 4){
-                console.log("terug van server")
+                console.log("terug van server");
             }
         }
         xhr.open("POST","http://localhost:8082/maaltijdinvoeren", true);
-        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.setRequestHeader("Content-Type","application/json");
         xhr.send(maaltijdJSON);
     }
-
 
 </script>
 
 <input placeholder="naam maaltijd" id="invoerveldnaam">
-<input type="button" onclick="maaltijdToevoegen()" value="voeg maaltijd toe"
-
+<input type="button" onclick="maaltijdtoevoegen()" value="voeg maaltijd toe">
 <b>iets</b>iets
 reference guide
 <button onclick="mijnfunctie()"> Klik hier </button>
