@@ -1,74 +1,78 @@
 
 <script>
-    window.onload = toonallemaaltijden;
+window.onload = toonallemaaltijden;
 
-    function mijnfunctie(){
-        //alert("het is gelukt");
-        // XMLHttpRequest   ouder
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-            if(this.readyState == 4){
-                var dediv = document.getElementById("onzeuitkomst");
-                var antwoord = this.responseText;
-                var hetantwoord = JSON.parse(this.responseText);
-                dediv.innerHTML = hetantwoord.naam; // objecten  NIETSTRING
-            }
-        }
-        xhr.open("GET","http://localhost:8082/twee", true);
-        xhr.send();
-    }
-    function maaltijdtoevoegen(){
-        var maaltijd = {}
-        maaltijd.naam = document.getElementById("invoerveldnaam").value;
-        var maaltijdJSON = JSON.stringify(maaltijd);
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-            if(this.readyState == 4){
-                console.log("terug van server");
-            }
-        }
-        xhr.open("POST","http://localhost:8082/maaltijdinvoeren", true);
-        xhr.setRequestHeader("Content-Type","application/json");
-        xhr.send(maaltijdJSON);
-    }
-    function toonallemaaltijden(){
-        fetch("http://localhost:8082/felixallemaaltijden")
-            .then( res => res.json())
-            .then( data => maakMaaltijdTabel(data))
-    }
-    function maakMaaltijdTabel(tabelData){
-        let detabelString = "<table>";
-        for(let x = 0; x<tabelData.length; x++){
-            detabelString += `<tr><td>${tabelData[x].naam}</td><td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td></tr>`
-        }
-        detabelString += "</table>";
-        document.getElementById("allemaaltijdentabel").innerHTML = detabelString;
-    }
-    function verwijderMaaltijd(maaltijdid){
-        console.log(maaltijdid);
-        fetch("http://localhost:8082/verwijdermaaltijd/"+maaltijdid , {
-            method: 'DELETE'
-        }).then( x =>{
-            toonallemaaltijden()
-        })
-       
-    }
-    function quotevandedag(){
-        fetch("http://localhost:5000/felixeerste")
-        .then( a => a.json())
-        .then( data => showQuote(data))
-    }
-    function showQuote(deQuote){
-        for(var x =0; x < deQuote.length; x++){
-            document.getElementById("pythondata").innerHTML += "<h1>"+deQuote[x][1]+" - "+deQuote[x][2]+"</h1>";
-        }
-    }
-    function opslaan(){
-        var dequote = document.getElementById("nwquote").value;
-        fetch("http://localhost:5000/aanmakenquote/"+dequote)
-      
-    }
+function mijnfunctie(){
+	//alert("het is gelukt");
+	// XMLHttpRequest   ouder
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(this.readyState == 4){
+			var dediv = document.getElementById("onzeuitkomst");
+			var antwoord = this.responseText;
+			var hetantwoord = JSON.parse(this.responseText);
+			dediv.innerHTML = hetantwoord.naam; // objecten  NIETSTRING
+		}
+	}
+	xhr.open("GET","http://localhost:8082/twee", true);
+	xhr.send();
+}
 
+function maaltijdtoevoegen(){
+	var maaltijd = {}
+	maaltijd.naam = document.getElementById("invoerveldnaam").value;
+	var maaltijdJSON = JSON.stringify(maaltijd);
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(this.readyState == 4){
+			console.log("terug van server");
+		}
+	}
+	xhr.open("POST","http://localhost:8082/maaltijdinvoeren", true);
+	xhr.setRequestHeader("Content-Type","application/json");
+	xhr.send(maaltijdJSON);
+}
+
+function toonallemaaltijden(){
+	fetch("http://localhost:8082/felixallemaaltijden")
+		.then( res => res.json())
+		.then( data => maakMaaltijdTabel(data))
+}
+
+function maakMaaltijdTabel(tabelData){
+	let detabelString = "<table>";
+	for(let x = 0; x<tabelData.length; x++){
+		detabelString += `<tr><td>${tabelData[x].naam}</td><td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td></tr>`
+	}
+	detabelString += "</table>";
+	document.getElementById("allemaaltijdentabel").innerHTML = detabelString;
+}
+
+function verwijderMaaltijd(maaltijdid){
+	console.log(maaltijdid);
+	fetch("http://localhost:8082/verwijdermaaltijd/"+maaltijdid , {
+		method: 'DELETE'
+	}).then( x =>{
+		toonallemaaltijden()
+	})
+}
+
+function quotevandedag(){
+	fetch("http://localhost:5000/felixeerste")
+		.then( a => a.json())
+		.then( data => showQuote(data))
+}
+
+function showQuote(deQuote){
+	for(var x =0; x < deQuote.length; x++){
+		document.getElementById("pythondata").innerHTML += "<h1>"+deQuote[x][1]+" - "+deQuote[x][2]+"</h1>";
+	}
+}
+
+function opslaan(){
+	var dequote = document.getElementById("nwquote").value;
+	fetch("http://localhost:5000/aanmakenquote/"+dequote)
+}
 </script>
 
 <input placeholder="naam maaltijd" id="invoerveldnaam">
