@@ -15,24 +15,52 @@
     xhr.send();
   }
 
-  function maaltijdToevoegen() {
-    var maaltijd = {};
-    maaltijd.naam = document.getElementById("invoerveldnaam").value;
-    var maaltijdJSON = JSON.stringify(maaltijd);
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4) {
-        console.log("terug van server");
-      }
-    };
-    xhr.open("POST", "http://localhost:8082/maaltijdinvoeren", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(maaltijdJSON);
-  }
+    function maaltijdToevoegen(){
+        var maaltijd = {}
+        maaltijd.naam = document.getElementById("invoerveldnaam").value;
+        var maaltijdJSON = JSON.stringify(maaltijd);
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4){
+                console.log("terug van server");
+            }
+        }
+        xhr.open("POST","http://localhost:8082/maaltijdinvoeren", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(maaltijdJSON);
+    }
+
+    function toonallemaaltijden(){
+        fetch("http://localhost:8082/overzichtmaaltijden")
+            .then( res => res.json())
+            .then( data => maakMaaltijdTabel(data))
+    }
+
+    function maakMaaltijdTabel(tabelData){
+        let detabelString = "<table>";
+        for(let x = 0; x<tabelData.length; x++){
+            detabelString += `<tr><td>${tabelData[x].naam}</td><td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td></tr>`
+        }
+        detabelString += "</table>";
+        document.getElementById("allemaaltijdentabel").innerHTML = detabelString;
+    }
+
+    function verwijderMaaltijd(maaltijdid){
+        fetch("http://localhost:8082/verwijderenmaaltijd/"+maaltijdid , {
+            method: 'DELETE'
+        })
+    }
+
 </script>
 
-<input placeholder="naam maaltijd" , id="invoerveldnaam" />
-<input type="button" onclick="maaltijdToevoegen()" value="voeg maaltijd toe" />
-<b>iets</b>iets reference guide
-<button onclick="mijnfunctie()">Klik hier</button>
-<div id="onzeuitkomst"></div>
+<input placeholder="naam maaltijd", id="invoerveldnaam">
+<input type="button" onclick="maaltijdToevoegen()" value="voeg maaltijd toe">
+<input type="button" onclick = "toonallemaaltijden()" value="toon alle maaltijden">
+reference guide
+<button onclick="mijnfunctie()"> Klik hier </button>
+<div id="onzeuitkomst">
+<div id="allemaaltijdentabel"> </div>
+
+
+
+</div>
