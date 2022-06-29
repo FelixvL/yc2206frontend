@@ -5,13 +5,14 @@ function mijnfunctie() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
+      console.log(this.responseText);
       var antwoord = this.responseText;
       var hetantwoord = JSON.parse(this.responseText);
-      dediv.innerHTML = hetantwoord.data[0].first_name; // objecten  NIETSTRING
+      dediv.innerHTML = hetantwoord.naam; // objecten  NIETSTRING
     }
   };
   console.log("opening");
-  xhr.open("GET", "https://reqres.in/api/users?page=2", true);
+  xhr.open("GET", "http://localhost:8082/twee", true);
   xhr.send();
 }
 
