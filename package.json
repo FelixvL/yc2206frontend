@@ -1,0 +1,24 @@
+{
+  "name": "yc2206frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "start": "http-server -o -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelixvL/yc2206frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelixvL/yc2206frontend/issues"
+  },
+  "homepage": "https://github.com/FelixvL/yc2206frontend#readme"
+}

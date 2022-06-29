@@ -1,27 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <div class="header__left">
+          <a class="header__link" href="/">Thuisbezorgd</a>
+        </div>
+        <div class="header__right">
+          <a class="header__link" href="./about.html">About</a>
+          <a class="header__link header__contact" href="./contact.html"
+            >Contact</a
+          >
+          <a class="header__link" href="./vacatures.html">Vacatures</a>
+        </div>
+      </nav>
+    </header>
+    <h1 id="my-heading" class="heading main-heading">Hello, World!</h1>
+    <h2 placeholder="naam maaltijd" class="heading">Hi Planet</h2>
+    <input placeholder="naam maaltijd" />
+    <b>iets</b>iets reference guide
+    <button onclick="mijnfunctie()">Klik hier</button>
+    <div id="onzeuitkomst"></div>
+    <div id="maaltijden"></div>
 
-<script>
-    function mijnfunctie(){
-        //alert("het is gelukt");
-        // XMLHttpRequest   ouder
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-            if(this.readyState == 4){
-                var dediv = document.getElementById("onzeuitkomst");
-                var antwoord = this.responseText;
-                var hetantwoord = JSON.parse(this.responseText);
-                dediv.innerHTML = hetantwoord.naam; // objecten  NIETSTRING
-            }
-        }
-        xhr.open("GET","http://localhost:8082/twee", true);
-        xhr.send();
-    }
-
-</script>
-
-<input placeholder="naam maaltijd">
-<b>iets</b>iets
-reference guide
-<button onclick="mijnfunctie()"> Klik hier </button>
-<div id="onzeuitkomst">
-
-</div>
+    <!-- <div class="grid__wrapper">
+      <div class="grid__container">
+        <div class="grid__row">
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+        </div>
+        <div class="grid__row">
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+        </div>
+        <div class="grid__row">
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+          <div class="grid__column"></div>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>
