@@ -49,9 +49,13 @@ body {
 
 .heading {
   font-weight: bold;
-  color: yellow;
+  color: orangered;
   padding: 1rem;
   border: 2px solid black;
+}
+
+.invoer {
+  width: 100px;
 }
 
 #maaltijden {

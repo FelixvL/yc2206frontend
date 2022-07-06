@@ -1,39 +1,61 @@
-<script>
-  function mijnfunctie() {
-    //alert("het is gelukt");
-    // XMLHttpRequest   ouder
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4) {
-        var dediv = document.getElementById("onzeuitkomst");
-        var antwoord = this.responseText;
-        var hetantwoord = JSON.parse(this.responseText);
-        dediv.innerHTML = hetantwoord.naam; // objecten  NIETSTRING
-      }
-    };
-    xhr.open("GET", "http://localhost:8082/twee", true);
-    xhr.send();
-  }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="suzanne.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <div class="header__left">
+          <a class="header__link" href="./suzanne.html">Thuisbezorgd</a>
+        </div>
+        <div class="header__right">
+          <a class="header__link" href="./hulplinks.html">Hulplinks</a>
+          <a class="header__link header__contact" href="./quotes.html"
+            >Quotes</a
+          >
+          <a class="header__link" href="./restaurants.html">Restaurants</a>
+        </div>
+      </nav>
+    </header>
+    <h1 id="my-heading" class="heading main-heading">Hello, World!</h1>
+    <h2 placeholder="naam maaltijd" class="heading">Hi Planet</h2>
 
-  function maaltijdToevoegen() {
-    var maaltijd = {};
-    maaltijd.naam = document.getElementById("invoerveldnaam").value;
-    var maaltijdJSON = JSON.stringify(maaltijd);
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-      if (this.readyState == 4) {
-        console.log("terug van server");
-      }
-    };
-    xhr.open("POST", "http://localhost:8082/maaltijdinvoeren", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(maaltijdJSON);
-  }
-</script>
+    <input placeholder="naam" , class="invoer" , id="invoerveldnaam" />
+    <input
+      placeholder="beschrijving"
+      ,
+      class="invoer"
+      ,
+      id="invoerveldbeschrijving"
+    />
+    <input
+      placeholder="calorieen"
+      ,
+      class="invoer"
+      ,
+      id="invoerveldcalorieen"
+    />
+    <input placeholder="prijs" , class="invoer" , id="invoerveldprijs" />
 
-<input placeholder="naam maaltijd" id="invoerveldnaam" />
-<input type="button" onclick="maaltijdToevoegen()" value="voeg maaltijd toe" />
+    <input
+      type="button"
+      onclick="maaltijdToevoegen()"
+      value="voeg maaltijd toe"
+    />
+    <input
+      type="button"
+      onclick="toonallemaaltijden()"
+      value="toon alle maaltijden"
+    />
 
-<b>iets</b>iets reference guide
-<button onclick="mijnfunctie()">Klik hier</button>
-<div id="onzeuitkomst"></div>
+    <div id="onzeuitkomst">
+      <div id="allemaaltijdentabel"></div>
+    </div>
+  </body>
+</html>
