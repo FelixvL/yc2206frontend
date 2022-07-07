@@ -4,7 +4,8 @@ function restaurantToevoegen() {
   restaurant.adres = document.getElementById("invoerveldadres").value;
   restaurant.bezorger = document.getElementById("invoerveldbezorger").value;
   restaurant.cuisine = document.getElementById("invoerveldcuisine").value;
-  restaurant.geopend = document.getElementById("invoerveldgeopend").value == '1';
+  restaurant.geopend =
+    document.getElementById("invoerveldgeopend").value == "1";
   var restaurantJSON = JSON.stringify(restaurant);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -24,7 +25,7 @@ function toonallerestaurants() {
 }
 
 function bekijkRestaurantMaaltijden(id) {
-  window.location.href = 'suzanne.html?id=' + id;
+  window.location.href = "suzanne.html?id=" + id;
 }
 
 function maakRestaurantTabel(tabelData) {
