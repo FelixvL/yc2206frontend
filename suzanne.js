@@ -5,7 +5,7 @@ function maaltijdToevoegen() {
     "invoerveldbeschrijving"
   ).value;
   maaltijd.calorieen = document.getElementById("invoerveldcalorieen").value;
-  maaltijd.prijs = document.getElementById("invoerveldcalorieen").value;
+  maaltijd.prijs = document.getElementById("invoerveldprijs").value;
   var maaltijdJSON = JSON.stringify(maaltijd);
 
   var xhr = new XMLHttpRequest();
@@ -30,10 +30,10 @@ function maakMaaltijdTabel(tabelData) {
   for (let x = 0; x < tabelData.length; x++) {
     detabelString += `    
     <tr>
-    <td>${tabelData[x].naam}</td>  
-    <td>${tabelData[x].beschrijving}</td>  
-    <td>${tabelData[x].calorieen}</td>  
-    <td>${tabelData[x].prijs}</td>  
+    <td>${tabelData[x].naam}</td>
+    <td>${tabelData[x].beschrijving}</td>
+    <td>${tabelData[x].calorieen}</td>
+    <td>${tabelData[x].prijs}</td>
     <td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td></tr>`;
 
     /* <tr>
