@@ -1,47 +1,37 @@
-<!DOCTYPE html>
-<html lang="nl-NL">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="restaurants.js"></script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <nav class="header__nav">
-        <div class="header__left">
-          <a class="header__link" href="./suzanne.html">Thuisbezorgd</a>
-        </div>
-        <div class="header__right">
-          <a class="header__link" href="./hulplinks.html">Hulplinks</a>
-          <a class="header__link header__contact" href="./quotes.html"
-            >Quotes</a
-          >
-          <a class="header__link" href="./restaurants.html">Restaurants</a>
-        </div>
-      </nav>
-    </header>
-    <h1>Restaurants</h1>
-    <input placeholder="naam" , class="invoer" ,id="invoerveldnaam" />
-    <input placeholder="adres" , class="invoer" , id="invoerveldadres" />
-    <input placeholder="bezorger" , class="invoer" , id="invoerveldbezorger" />
-    <input placeholder="cuisine" , class="invoer" , id="invoerveldcuisine" />
-    <input placeholder="geopend" , class="invoer" , id="invoerveldgeopend" />
-    <input
-      type="button"
-      onclick="maaltijdToevoegen()"
-      value="voeg restaurant toe"
-    />
-    <input
-      type="button"
-      onclick="toonallerestaurants()"
-      value="toon alle restaurants"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="restaurants.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <div id="onzeuitkomst">
-      <div id="allerestaurantstabel"></div>
-    </div>
-  </body>
+<body>
+  <header class="header">
+    <nav class="header__nav">
+      <div class="header__left">
+        <a class="header__link" href="./suzanne.html">Thuisbezorgd</a>
+      </div>
+      <div class="header__right">
+        <a class="header__link" href="./hulplinks.html">Hulplinks</a>
+        <a class="header__link header__contact" href="./quotes.html">Quotes</a>
+        <a class="header__link" href="./restaurants.html">Restaurants</a>
+      </div>
+    </nav>
+  </header>
+  <h1>Restaurants</h1>
+  <input placeholder="naam" class="invoer" id="invoerveldnaam" />
+  <input placeholder="adres" class="invoer" id="invoerveldadres" />
+  <input placeholder="bezorger" class="invoer" id="invoerveldbezorger" />
+  <input placeholder="cuisine" class="invoer" id="invoerveldcuisine" />
+  <input placeholder="geopend" class="invoer" id="invoerveldgeopend" />
+  <input type="button" onclick="restaurantToevoegen()" value="voeg restaurant toe" />
+  <input type="button" onclick="toonallerestaurants()" value="toon alle restaurants" />
+
+  <div id="onzeuitkomst">
+    <div id="allerestaurantstabel"></div>
+  </div>
+</body>
+
 </html>

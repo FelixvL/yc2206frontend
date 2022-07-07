@@ -1,10 +1,10 @@
 function restaurantToevoegen() {
   var restaurant = {};
   restaurant.naam = document.getElementById("invoerveldnaam").value;
-  restaurant.adres = document.getElementById("invoerveldnaam").value;
-  restaurant.bezorger = document.getElementById("invoerveldnaam").value;
-  restaurant.cuisine = document.getElementById("invoerveldnaam").value;
-  restaurant.geopend = document.getElementById("invoerveldnaam").value;
+  restaurant.adres = document.getElementById("invoerveldadres").value;
+  restaurant.bezorger = document.getElementById("invoerveldbezorger").value;
+  restaurant.cuisine = document.getElementById("invoerveldcuisine").value;
+  restaurant.geopend = document.getElementById("invoerveldgeopend").value == '1';
   var restaurantJSON = JSON.stringify(restaurant);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
