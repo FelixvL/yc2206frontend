@@ -23,6 +23,10 @@ function toonallerestaurants() {
     .then((data) => maakRestaurantTabel(data));
 }
 
+function bekijkRestaurantMaaltijden(id) {
+  window.location.href = 'suzanne.html?id=' + id;
+}
+
 function maakRestaurantTabel(tabelData) {
   let detabelString = "<table>";
   for (let x = 0; x < tabelData.length; x++) {
@@ -32,7 +36,10 @@ function maakRestaurantTabel(tabelData) {
     <td>${tabelData[x].bezorger}</td>
     <td>${tabelData[x].cuisine}</td>
     <td>${tabelData[x].geopend}</td>
-    <td><input type="button" onclick="verwijderRestaurant(${tabelData[x].id})" value="verwijder"></td></tr>`;
+    <td>
+      <input type="button" onclick="verwijderRestaurant(${tabelData[x].id})" value="verwijder">
+      <input type="button" onclick="bekijkRestaurantMaaltijden(${tabelData[x].id})" value="Bekijk maaltijden">
+    </td></tr>`;
   }
   detabelString += "</table>";
   document.getElementById("allerestaurantstabel").innerHTML = detabelString;

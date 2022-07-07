@@ -1,11 +1,16 @@
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+let restuarantId = params.id; // "some_value"
+
 function maaltijdToevoegen() {
   var maaltijd = {};
   maaltijd.naam = document.getElementById("invoerveldnaam").value;
-  maaltijd.beschrijving = document.getElementById(
-    "invoerveldbeschrijving"
-  ).value;
+  maaltijd.beschrijving = document.getElementById("invoerveldbeschrijving").value;
   maaltijd.calorieen = document.getElementById("invoerveldcalorieen").value;
   maaltijd.prijs = document.getElementById("invoerveldprijs").value;
+  maaltijd.restaurantId = document.getElementById("invoerveldrestaurant").value;
   var maaltijdJSON = JSON.stringify(maaltijd);
 
   var xhr = new XMLHttpRequest();
@@ -20,7 +25,7 @@ function maaltijdToevoegen() {
 }
 
 function toonallemaaltijden() {
-  fetch("http://localhost:8082/overzichtmaaltijden")
+  fetch("http://localhost:8082/overzichtmaaltijden/restaurant/" + restuarantId)
     .then((res) => res.json())
     .then((data) => maakMaaltijdTabel(data));
 }
@@ -34,6 +39,7 @@ function maakMaaltijdTabel(tabelData) {
     <td>${tabelData[x].beschrijving}</td>
     <td>${tabelData[x].calorieen}</td>
     <td>${tabelData[x].prijs}</td>
+    <td>${tabelData[x].restaurantNaam}</td>
     <td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td></tr>`;
 
     /* <tr>
@@ -53,3 +59,20 @@ function verwijderMaaltijd(maaltijdid) {
     toonallemaaltijden();
   });
 }
+
+function vulAlleRestaurants() {
+  fetch("http://localhost:8082/overzichtrestaurants")
+    .then((res) => res.json())
+    .then((data) => {
+      const select = document.getElementById('invoerveldrestaurant');
+
+      data.forEach(restaurant => {
+        var option = document.createElement("option");
+        option.text = restaurant.naam;
+        option.value = restaurant.id;
+
+        select.add(option); 
+      });
+    });
+}
+
