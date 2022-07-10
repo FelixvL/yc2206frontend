@@ -1,9 +1,8 @@
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
-// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
 
-let restuarantId = params.id;
+let restaurantId = params.id;
 
 function maaltijdToevoegen() {
   var maaltijd = {};
@@ -26,7 +25,7 @@ function maaltijdToevoegen() {
 }
 
 function toonallemaaltijden() {
-  fetch("http://localhost:8082/overzichtmaaltijden/restaurant/" + restuarantId)
+  fetch("http://localhost:8082/overzichtmaaltijden/restaurant/" + restaurantId)
     .then((res) => res.json())
     .then((data) => maakMaaltijdTabel(data));
 }
@@ -65,15 +64,14 @@ function vulAlleRestaurants() {
   fetch("http://localhost:8082/overzichtrestaurants")
     .then((res) => res.json())
     .then((data) => {
-      const select = document.getElementById('invoerveldrestaurant');
+      const select = document.getElementById("invoerveldrestaurant");
 
-      data.forEach(restaurant => {
+      data.forEach((restaurant) => {
         var option = document.createElement("option");
         option.text = restaurant.naam;
         option.value = restaurant.id;
 
-        select.add(option); 
+        select.add(option);
       });
     });
 }
-

@@ -5,6 +5,10 @@ body {
   font-family: sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 .header {
   background-color: orangered;
 }
@@ -58,50 +62,18 @@ body {
   width: 100px;
 }
 
-#maaltijden {
-  display: flex;
-  flex-direction: column;
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: lightgrey;
+a,
+a:hover {
+  color: black;
+  text-decoration: none;
 }
 
-.meal {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+.card {
+  margin-bottom: 3rem;
 }
 
-.meal:hover {
-  background-color: grey;
-}
-
-.meal > img {
-  width: 200px;
-  height: 200px;
+.card-img-top {
+  width: 100%;
+  height: 12vw;
   object-fit: cover;
 }
-
-/* .grid__wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.grid__container {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.grid__row {
-  display: flex;
-  gap: 20px;
-}
-
-.grid__column {
-  width: 200px;
-  height: 200px;
-  background-color: salmon;
-} */
