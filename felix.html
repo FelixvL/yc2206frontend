@@ -73,6 +73,32 @@ function opslaan(){
 	var dequote = document.getElementById("nwquote").value;
 	fetch("http://localhost:5000/aanmakenquote/"+dequote)
 }
+function fmodeltoevoegen(){
+	var filesSelected = document.getElementById("bestandUploader").files;
+	var fileReader = new FileReader();
+	fileReader.onload = function(fileLoadedEvent) {
+  		var srcData = fileLoadedEvent.target.result; // <--- data: base64
+		tweedeGedeelteImageUpload(srcData);
+	}
+	fileReader.readAsDataURL(filesSelected[0]);
+}
+function tweedeGedeelteImageUpload(base64data){
+	var fmodel = {};
+	fmodel.fotoimage = base64data;
+	var fmodelJSON = JSON.stringify(fmodel);
+	console.log(fmodelJSON);
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(this.readyState == 4){
+			console.log("terug van server");
+			console.log(this.responseText);
+			document.getElementById("imgTest").src = base64data;
+		}
+	}
+	xhr.open("POST","http://localhost:8082/dingmetplaatje", true);
+	xhr.setRequestHeader("Content-Type","application/json");
+	xhr.send(fmodelJSON);
+}
 </script>
 
 <input placeholder="naam maaltijd" id="invoerveldnaam">
@@ -91,3 +117,10 @@ function opslaan(){
 <button onclick="quotevandedag()">geef me spul</button>
 <div id="pythondata"></div>
 Nieuwe quote<input id="nwquote"><button onclick="opslaan()">opslaan</button>
+
+<hr><hr>
+
+<h1>foto opslaan</h1>
+<input type="file" id="bestandUploader">
+<button onclick="fmodeltoevoegen()">geef me spul</button>
+<img id="imgTest">
