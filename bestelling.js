@@ -1,3 +1,9 @@
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+
+let restaurantId = params.id;
+
 function bestellingToevoegen() {
   var bestelling = {};
   bestelling.maaltijd_prijs = document.getElementById("invoerveldmaaltijdprijs").value;
@@ -21,7 +27,7 @@ function bestellingToevoegen() {
 }
 
 function toonallebestellingen() {
-  fetch("http://localhost:8082/overzichtbestellingen/")
+  fetch("http://localhost:8082/overzichtbestellingen/restaurant/" + restaurantId)
     .then((res) => res.json())
     .then((data) => maakBestellingTabel(data));
 }
