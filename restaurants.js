@@ -32,7 +32,17 @@ function bekijkRestaurantBestellingen(id) {
 }
 
 function maakRestaurantTabel(tabelData) {
-  let detabelString = "<table>";
+  let detabelString = `<table class=overzichtTabel>
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>Adres</th>
+      <th>Bezorger</th>
+      <th>Cuisine</th>
+      <th>Geopend</th>
+      <th></th>
+    </tr>
+  </thead>`;
   for (let x = 0; x < tabelData.length; x++) {
     detabelString += `<tr>
     <td>${tabelData[x].naam}</td>

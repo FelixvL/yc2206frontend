@@ -1,0 +1,31 @@
+.overzichtTabel {
+  border-collapse: collapse;
+  margin: 25px 25px;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.overzichtTabel thead tr {
+  background-color: #ff4500;
+  color: #ffffff;
+  text-align: left;
+}
+
+.overzichtTabel th,
+.overzichtTabel td {
+  padding: 12px 15px;
+}
+
+.overzichtTabel tbody tr {
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+}
+
+.overzichtTabel tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.overzichtTabel tbody tr:last-of-type {
+  border-bottom: 2px solid #ff4500;
+}
