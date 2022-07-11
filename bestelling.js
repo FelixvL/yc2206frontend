@@ -1,9 +1,3 @@
-const params = new Proxy(new URLSearchParams(window.location.search), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});
-
-let maaltijdId = params.id;
-
 function bestellingToevoegen() {
   var bestelling = {};
   bestelling.maaltijd_prijs = document.getElementById("invoerveldmaaltijdprijs").value;
@@ -12,6 +6,8 @@ function bestellingToevoegen() {
   bestelling.status = document.getElementById("invoerveldstatus").value;
   bestelling.opmerking = document.getElementById("invoerveldopmerking").value;
 
+  var maaltijdDropdownId = document.getElementById("invoerveldmaaltijd").value;
+
   var bestellingJSON = JSON.stringify(bestelling);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -19,7 +15,7 @@ function bestellingToevoegen() {
       console.log("terug van server");
     }
   };
-  xhr.open("POST", "http://localhost:8082/bestellinginvoeren/", true);
+  xhr.open("POST", "http://localhost:8082/bestellinginvoeren/" + maaltijdDropdownId, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(bestellingJSON);
 }
