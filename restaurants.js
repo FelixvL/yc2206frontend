@@ -27,6 +27,10 @@ function bekijkRestaurantMaaltijden(id) {
   window.location.href = "suzanne.html?id=" + id;
 }
 
+function bekijkRestaurantBestellingen(id) {
+  window.location.href = "bestelling.html?id=" + id;
+}
+
 function maakRestaurantTabel(tabelData) {
   let detabelString = "<table>";
   for (let x = 0; x < tabelData.length; x++) {
@@ -39,6 +43,7 @@ function maakRestaurantTabel(tabelData) {
     <td>
       <input type="button" onclick="verwijderRestaurant(${tabelData[x].id})" value="verwijder">
       <input type="button" onclick="bekijkRestaurantMaaltijden(${tabelData[x].id})" value="Bekijk maaltijden">
+      <input type="button" onclick="bekijkRestaurantBestellingen(${tabelData[x].id})" value="Bekijk bestellingen">
     </td></tr>`;
   }
   detabelString += "</table>";
