@@ -53,7 +53,7 @@ h1 {
 
 .heading {
   font-weight: bold;
-  color: orangered;
+  color: #ff4500;
   padding: 1rem;
   border: 2px solid black;
 }

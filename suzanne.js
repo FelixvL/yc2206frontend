@@ -31,7 +31,17 @@ function toonallemaaltijden() {
 }
 
 function maakMaaltijdTabel(tabelData) {
-  let detabelString = "<table>";
+  let detabelString = `<table class=overzichtTabel>
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>Beschrijving</th>
+      <th>Calorieen</th>
+      <th>Prijs</th>
+      <th>Restaurant naam</th>
+      <th></th>
+    </tr>
+  </thead>`;
   for (let x = 0; x < tabelData.length; x++) {
     detabelString += `    
     <tr>

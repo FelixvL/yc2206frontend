@@ -33,17 +33,31 @@ function toonallebestellingen() {
 }
 
 function maakBestellingTabel(tabelData) {
-  let detabelString = "<table>";
+  let detabelString = `<table class=overzichtTabel>
+  <thead>
+    <tr>
+      <th>Maaltijd prijs</th>
+      <th>Totaal prijs</th>
+      <th>Betaald</th>
+      <th>Status</th>
+      <th>Opmerking</th>
+      <th></th>
+    </tr>
+  </thead>`;
   for (let x = 0; x < tabelData.length; x++) {
-    detabelString += `<tr>
-    <td>${tabelData[x].maaltijd_prijs}</td>
-    <td>${tabelData[x].totaal_prijs}</td>
-    <td>${tabelData[x].betaald}</td>
-    <td>${tabelData[x].status}</td>
-    <td>${tabelData[x].opmerking}</td>
-    <td>
-      <input type="button" onclick="verwijderBestelling(${tabelData[x].id})" value="verwijder">
-    </td></tr>`;
+    detabelString += `
+    <tbody>
+      <tr>
+        <td>${tabelData[x].maaltijd_prijs}</td>
+        <td>${tabelData[x].totaal_prijs}</td>
+        <td>${tabelData[x].betaald}</td>
+        <td>${tabelData[x].status}</td>
+        <td>${tabelData[x].opmerking}</td>
+        <td>
+          <input type="button" onclick="verwijderBestelling(${tabelData[x].id})" value="verwijder">
+        </td>
+      </tr>
+    </tbody>`;
   }
   detabelString += "</table>";
   document.getElementById("allebestellingentabel").innerHTML = detabelString;
