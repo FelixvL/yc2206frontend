@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="suzanne.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
@@ -30,27 +29,13 @@
       </nav>
     </header>
 
-    <!--Maaltijden toevoegen -->
-    <input placeholder="naam" class="invoer" id="invoerveldnaam" />
-    <input placeholder="beschrijving" class="invoer" id="invoerveldbeschrijving" />
-    <input placeholder="calorieen" class="invoer" id="invoerveldcalorieen" />
-    <input placeholder="prijs" class="invoer" id="invoerveldprijs" />
-
-    <select class="invoer" id="invoerveldrestaurant"></select>
-
-    <input type="button" onclick="maaltijdToevoegen()" value="voeg maaltijd toe" />
-    <input type="button" onclick="toonallemaaltijden()" value="toon alle maaltijden" />
-
-    <div id="onzeuitkomst">
-      <div id="allemaaltijdentabel"></div>
-    </div>
-
     <!--Restaurants grid -->
+    <h1>Kies een restaurant</h1>
       <div class="py-5">
         <div class="container">
           <div class="row hidden-md-up">
             <div class="col-md-4">
-              <a href="./suzanne.html?id=1" class="card-link">
+              <a href="./maaltijden.html?id=1" class="card-link">
                 <div class="card">
                   <img class="card-img-top"
                     src="https://www.venezia-dedemsvaart.nl/algemeen/img/photos/sorted/mediterraans/italiaans/italian3.jpg"
@@ -63,7 +48,7 @@
           </div>
         </div>
          <div class="col-md-4">
-              <a href="./restaurants.html" class="card-link">
+              <a href="./maaltijden.html?id=11" class="card-link">
                 <div class="card">
                   <img class="card-img-top"
                     src="https://images.immediate.co.uk/production/volatile/sites/30/2022/06/Chicken-chow-mein-7aeec1d.png"
@@ -76,7 +61,7 @@
           </div>
         </div>
          <div class="col-md-4">
-              <a href="./restaurants.html" class="card-link">
+              <a href="./maaltijden.html?id=10" class="card-link">
                 <div class="card">
                   <img class="card-img-top"
                     src="https://www.sushipoint.nl/content/uploads/pexels-vinicius-benedit-3620705.jpg"
@@ -89,7 +74,7 @@
           </div>
         </div>
          <div class="col-md-4">
-              <a href="./restaurants.html" class="card-link">
+              <a href="./maaltijden.html?id=6" class="card-link">
                 <div class="card">
                   <img class="card-img-top"
                     src="https://beilerei.com/media/image/32/78/3b/spareribs-hausschwein.jpg"
@@ -102,7 +87,7 @@
           </div>
         </div>
          <div class="col-md-4">
-              <a href="./restaurants.html" class="card-link">
+              <a href="./maaltijden.html?id=8" class="card-link">
                 <div class="card">
                   <img class="card-img-top"
                     src="https://img.taste.com.au/ol2Jq8ZQ/taste/2016/11/rachel-87711-2.jpeg"
@@ -115,7 +100,7 @@
           </div>
         </div>
          <div class="col-md-4">
-              <a href="./restaurants.html" class="card-link">
+              <a href="./maaltijden.html?id=7" class="card-link">
                 <div class="card">
                   <img class="card-img-top"
                     src="https://www.juicyburgers.nl/algemeen/img/photos/sorted/lunch/cafetaria/cafetaria5.jpg"
@@ -127,12 +112,6 @@
             </div>
           </div>
         </div>
-
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-      <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
-      
-      <script> vulAlleRestaurants(); </script>
   </body>
 
 </html>

@@ -40,6 +40,7 @@ function maakMaaltijdTabel(tabelData) {
       <th>Prijs</th>
       <th>Restaurant naam</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>`;
   for (let x = 0; x < tabelData.length; x++) {
@@ -50,13 +51,9 @@ function maakMaaltijdTabel(tabelData) {
     <td>${tabelData[x].calorieen}</td>
     <td>${tabelData[x].prijs}</td>
     <td>${tabelData[x].restaurantNaam}</td>
-    <td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td></tr>`;
-
-    /* <tr>
-    <th>Naam</th>
-    <th>Calorieen</th>
-    </tr> 
-    */
+    <td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td>
+    <td><input type=button onClick="parent.location='bestelling.html'" value='voeg toe aan bestelling'></td>
+    </tr>`;
   }
   detabelString += "</table>";
   document.getElementById("allemaaltijdentabel").innerHTML = detabelString;
