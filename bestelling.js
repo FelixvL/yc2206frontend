@@ -53,9 +53,7 @@ function maakBestellingTabel(tabelData) {
         <td>${tabelData[x].betaald}</td>
         <td>${tabelData[x].status}</td>
         <td>${tabelData[x].opmerking}</td>
-        <td>
-          <input type="button" onclick="verwijderBestelling(${tabelData[x].id})" value="verwijder">
-        </td>
+        <td> <input type="button" onclick="verwijderBestelling(${tabelData[x].id})" value="verwijder"> </td>
       </tr>
     </tbody>`;
   }

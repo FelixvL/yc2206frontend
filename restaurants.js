@@ -24,7 +24,7 @@ function toonallerestaurants() {
 }
 
 function bekijkRestaurantMaaltijden(id) {
-  window.location.href = "suzanne.html?id=" + id;
+  window.location.href = "maaltijden.html?id=" + id;
 }
 
 function bekijkRestaurantBestellingen(id) {
