@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="nl-NL">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="suzanne.js"></script>
+    <script src="klant.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="tabel.css" />
   </head>
 
   <body>
@@ -24,6 +25,17 @@
         </div>
       </nav>
     </header>
-    <h1>Quotes</h1>
+    <h1>Klant</h1>
+    <input placeholder="naam" class="invoer" id="invoerveldnaam" />
+    <input placeholder="adres" class="invoer" id="invoerveldadres" />
+    <input type="email" placeholder="email" class="invoer" id="invoerveldemail" />
+    <input placeholder="telefoonnummer" class="invoer" id="invoerveldtelefoonnummer" />
+
+    <input type="button" onclick="klantToevoegen()" value="voeg klant toe" />
+    <input type="button" onclick="toonalleklanten()" value="toon alle klanten" />
+
+    <div>
+      <div id="alleklantentabel"></div>
+    </div>
   </body>
 </html>
