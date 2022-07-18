@@ -23,12 +23,12 @@ function toonallerestaurants() {
     .then((data) => maakRestaurantTabel(data));
 }
 
-function bekijkRestaurantMaaltijden(id) {
-  window.location.href = "maaltijden.html?id=" + id;
+function bekijkRestaurantMaaltijden(restaurantid) {
+  window.location.href = "maaltijden.html?id=" + restaurantid;
 }
 
-function bekijkRestaurantBestellingen(id) {
-  window.location.href = "bestelling.html?id=" + id;
+function bekijkRestaurantBestellingen(restaurantid) {
+  window.location.href = "bestelling.html?rid=" + restaurantid;
 }
 
 function maakRestaurantTabel(tabelData) {
@@ -44,17 +44,21 @@ function maakRestaurantTabel(tabelData) {
     </tr>
   </thead>`;
   for (let x = 0; x < tabelData.length; x++) {
-    detabelString += `<tr>
-    <td>${tabelData[x].naam}</td>
-    <td>${tabelData[x].adres}</td>
-    <td>${tabelData[x].bezorger}</td>
-    <td>${tabelData[x].cuisine}</td>
-    <td>${tabelData[x].geopend}</td>
-    <td>
-      <input type="button" onclick="verwijderRestaurant(${tabelData[x].id})" value="verwijder">
-      <input type="button" onclick="bekijkRestaurantMaaltijden(${tabelData[x].id})" value="Bekijk maaltijden">
-      <input type="button" onclick="bekijkRestaurantBestellingen(${tabelData[x].id})" value="Bekijk bestellingen">
-    </td></tr>`;
+    detabelString += `
+    <tbody>
+      <tr>
+        <td>${tabelData[x].naam}</td>
+        <td>${tabelData[x].adres}</td>
+        <td>${tabelData[x].bezorger}</td>
+        <td>${tabelData[x].cuisine}</td>
+        <td>${tabelData[x].geopend}</td>
+        <td>
+          <input type="button" onclick="verwijderRestaurant(${tabelData[x].id})" value="verwijder">
+          <input type="button" onclick="bekijkRestaurantMaaltijden(${tabelData[x].id})" value="Bekijk maaltijden">
+          <input type="button" onclick="bekijkRestaurantBestellingen(${tabelData[x].id})" value="Bekijk bestellingen">
+        </td>
+      </tr>
+    </tbody>`;
   }
   detabelString += "</table>";
   document.getElementById("allerestaurantstabel").innerHTML = detabelString;

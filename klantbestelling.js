@@ -2,7 +2,7 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 
-let restaurantId = params.id;
+let klantId = params.id;
 
 function bestellingToevoegen() {
   var bestelling = {};
@@ -28,7 +28,7 @@ function bestellingToevoegen() {
 }
 
 function toonallebestellingen() {
-  fetch("http://localhost:8082/overzichtbestellingen/restaurant/" + restaurantId)
+  fetch("http://localhost:8082/overzichtklantbestellingen/klant/" + klantId)
     .then((res) => res.json())
     .then((data) => maakBestellingTabel(data));
 }
