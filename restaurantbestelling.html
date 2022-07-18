@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Restaurant bestellingen</title>
     <script src="bestelling.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tabel.css" />
@@ -25,17 +25,8 @@
         </div>
       </nav>
     </header>
-    <h1>Bestelling</h1>
-    <input placeholder="maaltijd_prijs" class="invoer" id="invoerveldmaaltijdprijs" />
-    <input placeholder="totaal_prijs" class="invoer" id="invoerveldtotaalprijs" />
-    <input placeholder="betaald" class="invoer" id="invoerveldbetaald" />
-    <input placeholder="status" class="invoer" id="invoerveldstatus" />
-    <input placeholder="opmerking" class="invoer" id="invoerveldopmerking" />
-
-    <select class="invoer" id="invoerveldmaaltijd"></select>
-    <select class="invoer" id="invoerveldklant"></select>
-
-    <input type="button" onclick="bestellingToevoegen()" value="voeg bestelling toe" />
+    <h1>Restaurant bestellingoverzicht</h1>
+    <!-- <input type="button" onclick="toonAlleBestellingen()" value="toon alle restaurant bestellingen" /> -->
 
     <div>
       <div id="allebestellingentabel"></div>
@@ -43,23 +34,11 @@
   </body>
 
   <script>
-    // Initialisatie
     var queryString = location.search;
     let paramsBestelling = new URLSearchParams(queryString);
 
-    let kId = paramsBestelling.has("kId") ? paramsBestelling.get("kId") : 0;
     let mId = paramsBestelling.has("mId") ? paramsBestelling.get("mId") : 0;
 
-    let maaltijdenAfter = () => {
-      document.getElementById("invoerveldmaaltijd").value = mId;
-    };
-
-    let klantenAfter = () => {
-      document.getElementById("invoerveldklant").value = kId;
-    };
-
-    // Vullen
-    vulAlleMaaltijden(maaltijdenAfter);
-    vulAlleKlanten(klantenAfter);
+    toonAlleBestellingen();
   </script>
 </html>

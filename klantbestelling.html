@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="klantbestelling.js"></script>
+    <title>Klant bestellingen</title>
+    <script src="bestelling.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tabel.css" />
   </head>
@@ -25,18 +25,8 @@
         </div>
       </nav>
     </header>
-    <h1>Bestelling</h1>
-    <input placeholder="maaltijd_prijs" class="invoer" id="invoerveldmaaltijdprijs" />
-    <input placeholder="totaal_prijs" class="invoer" id="invoerveldtotaalprijs" />
-    <input placeholder="betaald" class="invoer" id="invoerveldbetaald" />
-    <input placeholder="status" class="invoer" id="invoerveldstatus" />
-    <input placeholder="opmerking" class="invoer" id="invoerveldopmerking" />
-
-    <select class="invoer" id="invoerveldmaaltijd"></select>
-    <select class="invoer" id="invoerveldklant"></select>
-
-    <input type="button" onclick="bestellingToevoegen()" value="voeg bestelling toe" />
-    <input type="button" onclick="toonallebestellingen()" value="toon alle bestellingen" />
+    <h1>Klant bestellingoverzicht</h1>
+    <!-- <input type="button" onclick="bekijkBestellingen()" value="toon alle klant bestellingen" /> -->
 
     <div>
       <div id="allebestellingentabel"></div>
@@ -44,7 +34,15 @@
   </body>
 
   <script>
-    vulAlleMaaltijden();
-    vulAlleKlanten();
+    function bekijkBestellingen() {
+      toonAlleKlantBestellingen(kId);
+    }
+    // Initialisatie
+    var queryString = location.search;
+    let paramsBestelling = new URLSearchParams(queryString);
+
+    let kId = paramsBestelling.has("kId") ? paramsBestelling.get("kId") : 0;
+
+    bekijkBestellingen();
   </script>
 </html>
