@@ -86,7 +86,7 @@ function vulAlleMaaltijden() {
     });
 }
 
-function vulAlleKlanten() {
+function vulAlleKlanten(afterFunction) {
   fetch("http://localhost:8082/overzichtklanten")
     .then((res) => res.json())
     .then((data) => {
@@ -99,5 +99,7 @@ function vulAlleKlanten() {
 
         select.add(option);
       });
+
+      afterFunction();
     });
 }

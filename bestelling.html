@@ -44,11 +44,20 @@
   </body>
 
   <script>
-    vulAlleMaaltijden();
-    vulAlleKlanten();
+    // Initialisatie
     var queryString = location.search;
     let paramsBestelling = new URLSearchParams(queryString);
-    let id = parseInt(paramsBestelling.get("rid"));
-    document.getElementById("invoerveldmaaltijd").value = id;
+
+    let rId = paramsBestelling.has("rid") ? parseInt(paramsBestelling.get("rid")) : 0;
+    let mId = paramsBestelling.has("mid") ? parseInt(paramsBestelling.get("mid")) : 0;
+
+    let after = () => {
+      document.getElementById("invoerveldmaaltijd").value = id;
+    };
+
+    // Vullen
+    vulAlleMaaltijden();
+    vulAlleKlanten(after);
+
   </script>
 </html>
