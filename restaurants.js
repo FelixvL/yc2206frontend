@@ -28,7 +28,7 @@ function bekijkRestaurantMaaltijden(restaurantid) {
 }
 
 function bekijkRestaurantBestellingen(restaurantid) {
-  window.location.href = "bestelling.html?rid=" + restaurantid;
+  window.location.href = "restaurantbestelling.html?id=" + restaurantid;
 }
 
 function maakRestaurantTabel(tabelData) {

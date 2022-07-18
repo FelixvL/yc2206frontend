@@ -24,7 +24,7 @@ function toonalleklanten() {
 }
 
 function bekijkKlantBestellingen(klantid) {
-  window.location.href = "bestelling.html?kid=" + klantid;
+  window.location.href = "klantbestelling.html?kId=" + klantid;
 }
 
 function maakKlantTabel(tabelData) {
