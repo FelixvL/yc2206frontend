@@ -1,20 +1,22 @@
-// const randomQuote = async () => {
-//   const JSONData = await fetch("https://yc2206bigdataapp.azurewebsites.net/quote_random/");
-//   const data = await JSONData.json();
-//   console.log(data);
-//   return data.quote;
-// };
+// Matthijs
 
-// const aanpassenUI = async () => {
-//   const data = await randomQuote();
-//   console.log(data);
-//   let quoteString = `<h4>${data}</h4>`;
-//   document.getElementById("random-quote-result").innerHTML = quoteString;
-// };
+const randomQuote = async () => {
+  const JSONData = await fetch("http://127.0.0.1:5000/quote_random/");
+  const data = await JSONData.json();
+  console.log(data);
+  return data.quote;
+};
 
-// document.getElementById("nieuwe-quote-button").addEventListener("click", aanpassenUI);
+const aanpassenUI = async () => {
+  const data = await randomQuote();
+  console.log(data);
+  let quoteString = `<h4>${data}</h4>`;
+  document.getElementById("random-quote-result").innerHTML = quoteString;
+};
 
-// window.onload = aanpassenUI();
+document.getElementById("nieuwe-quote-button").addEventListener("click", aanpassenUI);
+
+window.onload = aanpassenUI();
 
 // Suzanne
 
@@ -72,7 +74,8 @@ function maakAlleQuotesTabel(tabelData) {
 
 function quoteToevoegen() {
   var quote = {};
-  quote.naam = document.getElementById("invoerveldquote").value;
+  quote.auteur = document.getElementById("invoerveldauteur").value;
+  quote.tekst = document.getElementById("invoerveldtekst").value;
 
   var quoteJSON = JSON.stringify(quote);
   var xhr = new XMLHttpRequest();
