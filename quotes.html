@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tabel.css" />
-    <script src="quotes.js"></script>
   </head>
 
   <body>
@@ -32,7 +31,8 @@
         <button class="btn btn-primary" id="nieuwe-quote-button">Nieuwe Quote</button>
         <div id="random-quote-result"></div>
       </div>
-      <input placeholder="quote" class="invoer" id="invoerveldquote" />
+      <input placeholder="auteur" class="invoer" id="invoerveldauteur" />
+      <input placeholder="tekst" class="invoer" id="invoerveldtekst" />
       <input type="button" onclick="quoteToevoegen()" value="voeg quote toe" />
       <br />
       <input type="button" onclick="toonRandomQuote()" value="toon random quote" />
@@ -45,4 +45,5 @@
       </div>
     </main>
   </body>
+  <script src="quotes.js"></script>
 </html>
