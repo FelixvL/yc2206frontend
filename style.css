@@ -79,3 +79,15 @@ a:hover {
   height: 12vw;
   object-fit: cover;
 }
+
+/* RANDOM MAALTIJD SECTIE */
+#random-maaltijd-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* RANDOM QUOTES SELECTIE */
+#random-quote-container {
+  display: flex;
+  flex-direction: column;
+}

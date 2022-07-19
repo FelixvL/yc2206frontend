@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="nl-NL">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="tabel.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <script type="module" src="quotes.js"></script>
+    <script type="module" src="random.js"></script>
   </head>
-
   <body>
     <!--Navigatie bar-->
     <header class="header">
@@ -30,16 +30,16 @@
           >
           <a class="header__link" href="./restaurants.html">Restaurants</a>
           <a class="header__link" href="./bestelling.html">Bestelling</a>
-          <a class="header__link" href="./klant.html">Klant</a>
         </div>
       </nav>
     </header>
+
     <main>
-      <div id="random-quote-container">
-        <button class="btn btn-primary" id="nieuwe-quote-button">
-          Nieuwe Quote
+      <div id="random-maaltijd-container">
+        <button class="btn btn-primary" id="nieuwe-maaltijd-button">
+          Nieuwe Maaltijd
         </button>
-        <div id="random-quote-result"></div>
+        <div id="random-maaltijd-tabel"></div>
       </div>
     </main>
   </body>

@@ -18,7 +18,10 @@
         </div>
         <div class="header__right">
           <a class="header__link" href="./hulplinks.html">Hulplinks</a>
-          <a class="header__link header__contact" href="./quotes.html">Quotes</a>
+          <a class="header__link" href="./random.html">Random</a>
+          <a class="header__link header__contact" href="./quotes.html"
+            >Quotes</a
+          >
           <a class="header__link" href="./restaurants.html">Restaurants</a>
           <a class="header__link" href="./bestelling.html">Bestelling</a>
           <a class="header__link" href="./klant.html">Klant</a>
@@ -26,8 +29,16 @@
       </nav>
     </header>
     <h1>Bestelling</h1>
-    <input placeholder="maaltijd_prijs" class="invoer" id="invoerveldmaaltijdprijs" />
-    <input placeholder="totaal_prijs" class="invoer" id="invoerveldtotaalprijs" />
+    <input
+      placeholder="maaltijd_prijs"
+      class="invoer"
+      id="invoerveldmaaltijdprijs"
+    />
+    <input
+      placeholder="totaal_prijs"
+      class="invoer"
+      id="invoerveldtotaalprijs"
+    />
     <input placeholder="betaald" class="invoer" id="invoerveldbetaald" />
     <input placeholder="status" class="invoer" id="invoerveldstatus" />
     <input placeholder="opmerking" class="invoer" id="invoerveldopmerking" />
@@ -35,7 +46,16 @@
     <select class="invoer" id="invoerveldmaaltijd"></select>
     <select class="invoer" id="invoerveldklant"></select>
 
-    <input type="button" onclick="bestellingToevoegen()" value="voeg bestelling toe" />
+    <input
+      type="button"
+      onclick="bestellingToevoegen()"
+      value="voeg bestelling toe"
+    />
+    <input
+      type="button"
+      onclick="toonallebestellingen()"
+      value="toon alle bestellingen"
+    />
 
     <div>
       <div id="allebestellingentabel"></div>
