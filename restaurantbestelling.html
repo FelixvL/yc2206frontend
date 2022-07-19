@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html lang="nl-NL">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Restaurant bestellingen</title>
+    <script src="bestelling.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script type="module" src="quotes.js"></script>
+    <link rel="stylesheet" href="tabel.css" />
   </head>
 
   <body>
-    <!--Navigatie bar-->
     <header class="header">
       <nav class="header__nav">
         <div class="header__left">
@@ -24,23 +18,27 @@
         </div>
         <div class="header__right">
           <a class="header__link" href="./hulplinks.html">Hulplinks</a>
-          <a class="header__link" href="./random.html">Random</a>
-          <a class="header__link header__contact" href="./quotes.html"
-            >Quotes</a
-          >
+          <a class="header__link header__contact" href="./quotes.html">Quotes</a>
           <a class="header__link" href="./restaurants.html">Restaurants</a>
           <a class="header__link" href="./bestelling.html">Bestelling</a>
           <a class="header__link" href="./klant.html">Klant</a>
         </div>
       </nav>
     </header>
-    <main>
-      <div id="random-quote-container">
-        <button class="btn btn-primary" id="nieuwe-quote-button">
-          Nieuwe Quote
-        </button>
-        <div id="random-quote-result"></div>
-      </div>
-    </main>
+    <h1>Restaurant bestellingoverzicht</h1>
+    <!-- <input type="button" onclick="toonAlleBestellingen()" value="toon alle restaurant bestellingen" /> -->
+
+    <div>
+      <div id="allebestellingentabel"></div>
+    </div>
   </body>
+
+  <script>
+    var queryString = location.search;
+    let paramsBestelling = new URLSearchParams(queryString);
+
+    let mId = paramsBestelling.has("mId") ? paramsBestelling.get("mId") : 0;
+
+    toonAlleBestellingen();
+  </script>
 </html>

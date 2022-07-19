@@ -24,6 +24,7 @@
           >
           <a class="header__link" href="./restaurants.html">Restaurants</a>
           <a class="header__link" href="./bestelling.html">Bestelling</a>
+          <a class="header__link" href="./klant.html">Klant</a>
         </div>
       </nav>
     </header>
@@ -42,9 +43,8 @@
     <input placeholder="status" class="invoer" id="invoerveldstatus" />
     <input placeholder="opmerking" class="invoer" id="invoerveldopmerking" />
 
-    <select class="invoer" id="invoerveldmaaltijd">
-      <!-- Hier komen de maaltijden -->
-    </select>
+    <select class="invoer" id="invoerveldmaaltijd"></select>
+    <select class="invoer" id="invoerveldklant"></select>
 
     <input
       type="button"
@@ -63,6 +63,23 @@
   </body>
 
   <script>
-    vulAlleMaaltijden();
+    // Initialisatie
+    var queryString = location.search;
+    let paramsBestelling = new URLSearchParams(queryString);
+
+    let kId = paramsBestelling.has("kId") ? paramsBestelling.get("kId") : 0;
+    let mId = paramsBestelling.has("mId") ? paramsBestelling.get("mId") : 0;
+
+    let maaltijdenAfter = () => {
+      document.getElementById("invoerveldmaaltijd").value = mId;
+    };
+
+    let klantenAfter = () => {
+      document.getElementById("invoerveldklant").value = kId;
+    };
+
+    // Vullen
+    vulAlleMaaltijden(maaltijdenAfter);
+    vulAlleKlanten(klantenAfter);
   </script>
 </html>

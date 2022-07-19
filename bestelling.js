@@ -13,6 +13,7 @@ function bestellingToevoegen() {
   bestelling.opmerking = document.getElementById("invoerveldopmerking").value;
 
   var maaltijdDropdownId = document.getElementById("invoerveldmaaltijd").value;
+  var klantDropdownId = document.getElementById("invoerveldklant").value;
 
   var bestellingJSON = JSON.stringify(bestelling);
   var xhr = new XMLHttpRequest();
@@ -21,13 +22,19 @@ function bestellingToevoegen() {
       console.log("terug van server");
     }
   };
-  xhr.open("POST", "http://localhost:8082/bestellinginvoeren/" + maaltijdDropdownId, true);
+  xhr.open("POST", "http://localhost:8082/bestellinginvoeren/" + maaltijdDropdownId + "/" + klantDropdownId, true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(bestellingJSON);
 }
 
-function toonallebestellingen() {
+function toonAlleBestellingen() {
   fetch("http://localhost:8082/overzichtbestellingen/restaurant/" + restaurantId)
+    .then((res) => res.json())
+    .then((data) => maakBestellingTabel(data));
+}
+
+function toonAlleKlantBestellingen(klantId) {
+  fetch("http://localhost:8082/overzichtklantbestellingen/klant/" + klantId)
     .then((res) => res.json())
     .then((data) => maakBestellingTabel(data));
 }
@@ -36,11 +43,13 @@ function maakBestellingTabel(tabelData) {
   let detabelString = `<table class=overzichtTabel>
   <thead>
     <tr>
+      <th>Klant naam</th>
+      <th>Restaurant</th>
       <th>Maaltijd prijs</th>
       <th>Totaal prijs</th>
       <th>Betaald</th>
       <th>Status</th>
-      <th>Opmerking</th>
+      <th>Opmerking</th>      
       <th></th>
     </tr>
   </thead>`;
@@ -48,6 +57,8 @@ function maakBestellingTabel(tabelData) {
     detabelString += `
     <tbody>
       <tr>
+        <td>${tabelData[x].klantNaam}</td>
+        <td>${tabelData[x].restaurantNaam}</td>
         <td>${tabelData[x].maaltijd_prijs}</td>
         <td>${tabelData[x].totaal_prijs}</td>
         <td>${tabelData[x].betaald}</td>
@@ -65,11 +76,11 @@ function verwijderBestelling(bestellingid) {
   fetch("http://localhost:8082/verwijderbestelling/" + bestellingid, {
     method: "DELETE",
   }).then((x) => {
-    toonallebestellingen();
+    toonAlleBestellingen();
   });
 }
 
-function vulAlleMaaltijden() {
+function vulAlleMaaltijden(afterFunction) {
   fetch("http://localhost:8082/overzichtmaaltijden")
     .then((res) => res.json())
     .then((data) => {
@@ -82,5 +93,25 @@ function vulAlleMaaltijden() {
 
         select.add(option);
       });
+
+      afterFunction();
+    });
+}
+
+function vulAlleKlanten(afterFunction) {
+  fetch("http://localhost:8082/overzichtklanten")
+    .then((res) => res.json())
+    .then((data) => {
+      const select = document.getElementById("invoerveldklant");
+
+      data.forEach((klant) => {
+        var option = document.createElement("option");
+        option.text = klant.naam;
+        option.value = klant.id;
+
+        select.add(option);
+      });
+
+      afterFunction();
     });
 }
