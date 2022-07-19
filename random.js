@@ -1,8 +1,8 @@
 const randomMaaltijd = async () => {
-  const JSONData = await fetch('http://127.0.0.1:5000/maaltijd_random/');
+  const JSONData = await fetch("http://127.0.0.1:5000/maaltijd_random/");
   const data = await JSONData.json();
   return data[0];
-}
+};
 
 const aanpassenUI = async () => {
   const data = await randomMaaltijd();
@@ -21,11 +21,9 @@ const aanpassenUI = async () => {
   </tr>
   </tbody>
   </table>`;
-  document.getElementById('random-maaltijd-tabel').innerHTML = detabelString;
-}
+  document.getElementById("random-maaltijd-tabel").innerHTML = detabelString;
+};
 
-document.getElementById("nieuwe-maaltijd-button").addEventListener("click", aanpassenUI)
-
-
+document.getElementById("nieuwe-maaltijd-button").addEventListener("click", aanpassenUI);
 
 window.onload = aanpassenUI();
