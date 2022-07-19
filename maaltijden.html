@@ -25,7 +25,10 @@
         </div>
         <div class="header__right">
           <a class="header__link" href="./hulplinks.html">Hulplinks</a>
-          <a class="header__link header__contact" href="./quotes.html">Quotes</a>
+          <a class="header__link" href="./random.html">Random</a>
+          <a class="header__link header__contact" href="./quotes.html"
+            >Quotes</a
+          >
           <a class="header__link" href="./restaurants.html">Restaurants</a>
           <a class="header__link" href="./bestelling.html">Bestelling</a>
         </div>
@@ -34,14 +37,26 @@
 
     <!--Maaltijden toevoegen -->
     <input placeholder="naam" class="invoer" id="invoerveldnaam" />
-    <input placeholder="beschrijving" class="invoer" id="invoerveldbeschrijving" />
+    <input
+      placeholder="beschrijving"
+      class="invoer"
+      id="invoerveldbeschrijving"
+    />
     <input placeholder="calorieen" class="invoer" id="invoerveldcalorieen" />
     <input placeholder="prijs" class="invoer" id="invoerveldprijs" />
 
     <select class="invoer" id="invoerveldrestaurant"></select>
 
-    <input type="button" onclick="maaltijdToevoegen()" value="voeg maaltijd toe" />
-    <input type="button" onclick="toonallemaaltijden()" value="toon alle maaltijden" />
+    <input
+      type="button"
+      onclick="maaltijdToevoegen()"
+      value="voeg maaltijd toe"
+    />
+    <input
+      type="button"
+      onclick="toonallemaaltijden()"
+      value="toon alle maaltijden"
+    />
 
     <div id="onzeuitkomst">
       <div id="allemaaltijdentabel"></div>
