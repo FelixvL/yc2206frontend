@@ -47,58 +47,15 @@
           </div>
         </div>
       </div>
-      <div class="row mt-4">
-        <div class="col-12 mb-3">
-          <label for="invoerveldnaam" class="form-label">Naam</label>
-          <input type="text" class="form-control" id="invoerveldnaam" aria-describedby="naamHelp">
-          <div id="naamHelp" class="form-text">Vul hier jouw naam in.</div>
-        </div>
-      </div>
-      <div class="row">
+      <div class="row mb-4">
         <div class="col-12">
-          <div class="mb-3">
-            <label for="invoerveldbeschrijving" class="form-label">Beschrijving</label>
-            <input type="text" class="form-control" id="invoerveldbeschrijving" aria-describedby="beschrijvingHelp">
-            <div id="beschrijvingHelp" class="form-text">Vul hier de beschrijving in.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="mb-3">
-            <label for="invoerveldcalorieen" class="form-label">Calorieen</label>
-            <input type="number" class="form-control" id="invoerveldcalorieen" aria-describedby="calorieenHelp">
-            <div id="calorieenHelp" class="form-text">Vul de hoeveel calorieen in.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="mb-3">
-            <label for="invoerveldprijs" class="form-label">Prijs</label>
-            <input type="text" class="form-control" id="invoerveldprijs" aria-describedby="prijsHelp">
-            <div id="prijsHelp" class="form-text">Vul hier de prijs in.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="mb-3">
-            <label for="invoerveldrestaurant" class="form-label">Restaurant</label>
-            <select class="form-control" id="invoerveldrestaurant" aria-describedby="restaurantHelp"></select>
-            <div id="restaurantHelp" class="form-text">Selecteer hier het restaurant.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 text-right">
-          <input class="btn btn-primary" type="button" onclick="maaltijdToevoegen()" value="voeg maaltijd toe" />
+          <button class="btn btn-primary" type="button" onclick="window.location.href='addmaaltijd.html'">Toevoegen</button>
         </div>
       </div>
     </div>
 
     <script>
-      vulAlleRestaurants();
+      toonallemaaltijden();
     </script>
   </body>
 </html>

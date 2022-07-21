@@ -17,6 +17,8 @@ function maaltijdToevoegen() {
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
       console.log("terug van server");
+
+      window.location.href="maaltijden.html?id=" + maaltijd.restaurantId;
     }
   };
   xhr.open("POST", "http://localhost:8082/maaltijdinvoeren", true);
@@ -82,5 +84,3 @@ function vulAlleRestaurants() {
       });
     });
 }
-
-toonallemaaltijden();
