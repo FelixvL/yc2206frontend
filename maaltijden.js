@@ -51,8 +51,8 @@ function maakMaaltijdTabel(tabelData) {
     <td>${tabelData[x].calorieen}</td>
     <td>${tabelData[x].prijs}</td>
     <td>${tabelData[x].restaurantNaam}</td>
-    <td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td>
-    <td><input type=button onClick="parent.location='bestelling.html?mId='+ ${tabelData[x].id}" value='voeg toe aan bestelling'></td>
+    <td><input class="btn btn-danger" type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="Verwijder"></td>
+    <td><input class="btn btn-primary" type=button onClick="parent.location='bestelling.html?mId='+ ${tabelData[x].id}" value='Voeg toe aan bestelling'></td>
     </tr>`;
   }
   detabelString += "</table>";
@@ -82,3 +82,5 @@ function vulAlleRestaurants() {
       });
     });
 }
+
+toonallemaaltijden();
