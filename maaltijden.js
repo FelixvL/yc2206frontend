@@ -54,7 +54,7 @@ function maakMaaltijdTabel(tabelData) {
     <td>${tabelData[x].prijs}</td>
     <td>${tabelData[x].restaurantNaam}</td>
     <td><input class="btn btn-danger" type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="Verwijder"></td>
-    <td><input class="btn btn-primary" type=button onClick="parent.location='bestelling.html?mId='+ ${tabelData[x].id}" value='Voeg toe aan bestelling'></td>
+    <td><input class="btn btn-primary" type=button onClick="parent.location='addbestelling.html?mId=' + ${tabelData[x].id} + '&id=' + restaurantId" value='Voeg toe aan bestelling'></td>
     </tr>`;
   }
   detabelString += "</table>";
