@@ -5,24 +5,20 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 let restaurantId = params.id;
 
 function bestellingToevoegen() {
-  var bestelling = {};
-  bestelling.maaltijd_prijs = document.getElementById("invoerveldmaaltijdprijs").value;
-  bestelling.totaal_prijs = document.getElementById("invoerveldtotaalprijs").value;
-  bestelling.betaald = document.getElementById("invoerveldbetaald").value == "1";
-  bestelling.status = document.getElementById("invoerveldstatus").value;
-  bestelling.opmerking = document.getElementById("invoerveldopmerking").value;
+  let data = {
+    klantId: document.getElementById("invoerveldklant").value,
+    maaltijdId: document.getElementById("invoerveldmaaltijd").value,
+    opmerking: document.getElementById("invoerveldopmerking").value,
+  };
 
-  var maaltijdDropdownId = document.getElementById("invoerveldmaaltijd").value;
-  var klantDropdownId = document.getElementById("invoerveldklant").value;
-
-  var bestellingJSON = JSON.stringify(bestelling);
+  var bestellingJSON = JSON.stringify(data);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
       console.log("terug van server");
     }
   };
-  xhr.open("POST", "http://localhost:8082/bestellinginvoeren/" + maaltijdDropdownId + "/" + klantDropdownId, true);
+  xhr.open("POST", "http://localhost:8082/bestellinginvoeren", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(bestellingJSON);
 }
