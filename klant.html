@@ -21,13 +21,14 @@
     <header class="header">
       <nav class="header__nav">
         <div class="header__left">
-          <a class="header__link" href="./suzanne.html">Brain Bites</a>
+          <a class="header__link" href="./suzanne.html">Soulfood</a>
         </div>
         <div class="header__right">
           <a class="header__link" href="./random.html">Random</a>
           <a class="header__link header__contact" href="./quotes.html">Quotes</a>
           <a class="header__link" href="./restaurants.html">Restaurants</a>
           <a class="header__link" href="./klant.html">Klant</a>
+          <a class="header__link" href="./bezorger.html">Bezorger</a>
         </div>
       </nav>
     </header>
@@ -79,16 +80,9 @@
         </div>
         <div class="col-6 text-right">
           <input class="btn btn-primary" type="button" onclick="klantToevoegen()" value="Voeg klant toe" />
+          <input class="btn btn-primary" type="button" onclick="window.location.href='klantenoverzicht.html'" value="Bekijk alle klanten" />
         </div>
       </div>
     </div>
-
-    <div>
-      <div id="alleklantentabel"></div>
-    </div>
-
-    <script>
-      toonalleklanten();
-    </script>
   </body>
 </html>

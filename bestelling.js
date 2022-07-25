@@ -17,7 +17,7 @@ function bestellingToevoegen() {
     if (this.readyState == 4) {
       console.log("terug van server");
 
-      window.location.href = "maaltijden.html?id=" + restaurantId;
+      window.location.href = "klantmaaltijden.html?id=" + restaurantId;
     }
   };
   xhr.open("POST", "http://localhost:8082/bestellinginvoeren", true);
@@ -37,6 +37,12 @@ function toonAlleKlantBestellingen(klantId) {
     .then((data) => maakBestellingTabel(data));
 }
 
+function toonAlleBezorgerBestellingen(bezorgerId) {
+  fetch("http://localhost:8082/overzichtbezorgerbestellingen/bezorger/" + bezorgerId)
+    .then((res) => res.json())
+    .then((data) => maakBestellingTabel(data));
+}
+
 function maakBestellingTabel(tabelData) {
   let detabelString = `<table class=overzichtTabel>
   <thead>
@@ -47,7 +53,8 @@ function maakBestellingTabel(tabelData) {
       <th>Totaal prijs</th>
       <th>Betaald</th>
       <th>Status</th>
-      <th>Opmerking</th>      
+      <th>Opmerking</th>       
+      <th></th>
       <th></th>
     </tr>
   </thead>`;
@@ -62,7 +69,7 @@ function maakBestellingTabel(tabelData) {
         <td>${tabelData[x].betaald}</td>
         <td>${tabelData[x].status}</td>
         <td>${tabelData[x].opmerking}</td>
-        <td> <input type="button" onclick="verwijderBestelling(${tabelData[x].id})" value="verwijder"> </td>
+        <td><td><button class="btn" type="button" onclick="verwijderBestelling(${tabelData[x].id})" value="verwijder"><i class="fa fa-trash"></i></button></td>
       </tr>
     </tbody>`;
   }
