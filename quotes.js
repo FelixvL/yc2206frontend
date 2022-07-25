@@ -22,7 +22,7 @@ window.onload = aanpassenUI();
 
 // ophalen random quote
 function toonRandomQuote() {
-  fetch("http://127.0.0.1:5000/quote_random/")
+  fetch("http://127.0.0.1:5000/quotes_random/")
     .then((res) => res.json())
     .then((data) => maakQuotesTabel(data));
 }
@@ -31,21 +31,25 @@ function maakQuotesTabel(tabelData) {
   let detabelString = `<table class=overzichtTabel>
   <thead>
     <tr>
-      <th>Random quote van de dag</th>
+      <th>Tekst</th>
+      <th>Auteur</th>
     </tr>
-  </thead>
-    <tbody>
-      <tr>
-        <td>${tabelData.quote}</td>
-      </tr>
-    </tbody>
-  </table>`;
+  </thead>`;
+  for (let x = 0; x < tabelData.length; x++) {
+    detabelString += `    
+    <tr>
+    <td>${tabelData[x].tekst}</td>
+    <td>${tabelData[x].auteur}</td>
+    </tr>`;
+  }
+  detabelString += "</table>";
   document.getElementById("randomquotetabel").innerHTML = detabelString;
 }
 
 // overzicht alle quotes
 
 function toonAlleQuotes() {
+  verversQuotes();
   fetch("http://127.0.0.1:5000/quotes/")
     .then((res) => res.json())
     .then((data) => maakAlleQuotesTabel(data));
@@ -55,14 +59,16 @@ function maakAlleQuotesTabel(tabelData) {
   let detabelString = `<table class=overzichtTabel>
   <thead>
     <tr>
-      <th>Quote</th>
+      <th>Tekst</th>
+      <th>Auteur</th>
     </tr>
   </thead>`;
   for (let x = 0; x < tabelData.length; x++) {
     detabelString += `
     <tbody>
       <tr>
-        <td>${tabelData[x]}</td>
+        <td>${tabelData[x].tekst}</td>
+        <td>${tabelData[x].auteur}</td>
       </tr>
     </tbody>`;
   }
@@ -87,4 +93,10 @@ function quoteToevoegen() {
   xhr.open("POST", "http://127.0.0.1:5000/felixposttrial2", true);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.send(quoteJSON);
+}
+
+function verversQuotes() {
+  fetch("http://127.0.0.1:5000/quotes_verversen/")
+    .then((res) => res.json())
+    .then((data) => maakQuotesTabel(data));
 }

@@ -53,8 +53,8 @@ function maakRestaurantTabel(tabelData) {
         <td>${tabelData[x].cuisine}</td>
         <td>${tabelData[x].geopend}</td>
         <td>
-        <input class="btn btn-primary" type="button" onclick="bekijkRestaurantMaaltijden(${tabelData[x].id})" value="Bekijk maaltijden">
-        <input class="btn btn-primary" type="button" onclick="bekijkRestaurantBestellingen(${tabelData[x].id})" value="Bekijk bestellingen">
+        <input class="btn btn-primary" type="button" onclick="bekijkRestaurantMaaltijden(${tabelData[x].id})" value="Maaltijden">
+        <input class="btn btn-primary" type="button" onclick="bekijkRestaurantBestellingen(${tabelData[x].id})" value="Bestellingen">
         <button class="btn" type="button" onclick="verwijderRestaurant(${tabelData[x].id})" value="verwijder"><i class="fa fa-trash"></i></button>
         </td>
       </tr>
