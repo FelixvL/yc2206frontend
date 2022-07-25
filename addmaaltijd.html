@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="restaurants.js"></script>
+    <script src="maaltijden.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tabel.css" />
   </head>
 
   <body>
+    <!--Navigatie bar-->
     <header class="header">
       <nav class="header__nav">
         <div class="header__left">
@@ -35,52 +35,49 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h1>Restaurant aanmaken</h1>
+          <h1>Maaltijd aanmaken</h1>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col-12 mb-3">
           <label for="invoerveldnaam" class="form-label">Naam</label>
-          <input type="text" class="form-control" id="invoerveldnaam" placeholder="Vul hier de restaurantnaam in." aria-describedby="naamHelp" />
+          <input type="text" class="form-control" id="invoerveldnaam" aria-describedby="naamHelp" />
+          <div id="naamHelp" class="form-text">Vul hier jouw naam in.</div>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="invoerveldadres" class="form-label">Adres</label>
-            <input type="text" class="form-control" id="invoerveldadres" placeholder="Vul hier het adres in." aria-describedby="adresHelp" />
+            <label for="invoerveldbeschrijving" class="form-label">Beschrijving</label>
+            <input type="text" class="form-control" id="invoerveldbeschrijving" aria-describedby="beschrijvingHelp" />
+            <div id="beschrijvingHelp" class="form-text">Vul hier de beschrijving in.</div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="invoerveldbezorger" class="form-label">Bezorger</label>
-            <input type="number" class="form-control" id="invoerveldbezorger" placeholder="Vul hier de bezorger in." aria-describedby="bezorgerHelp" />
+            <label for="invoerveldcalorieen" class="form-label">Calorieen</label>
+            <input type="number" class="form-control" id="invoerveldcalorieen" aria-describedby="calorieenHelp" />
+            <div id="calorieenHelp" class="form-text">Vul de hoeveel calorieen in.</div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="invoerveldcuisine" class="form-label">Cuisine</label>
-            <input type="text" class="form-control" id="invoerveldcuisine" placeholder="Vul hier de cuisine in." aria-describedby="cuisineHelp" />
+            <label for="invoerveldprijs" class="form-label">Prijs</label>
+            <input type="text" class="form-control" id="invoerveldprijs" aria-describedby="prijsHelp" />
+            <div id="prijsHelp" class="form-text">Vul hier de prijs in.</div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="invoerveldgeopend" class="form-label">Geopend</label>
-            <input
-              type="number"
-              min="0"
-              max="1"
-              class="form-control"
-              id="invoerveldgeopend"
-              placeholder="Vul hier de restaurantnaam in."
-              aria-describedby="geopendHelp"
-            />
+            <label for="invoerveldrestaurant" class="form-label">Restaurant</label>
+            <select class="form-control" id="invoerveldrestaurant" aria-describedby="restaurantHelp"></select>
+            <div id="restaurantHelp" class="form-text">Selecteer hier het restaurant.</div>
           </div>
         </div>
       </div>
@@ -89,17 +86,13 @@
           <input type="button" class="btn btn-danger" onclick="history.back()" value="Terug" />
         </div>
         <div class="col-6 text-right">
-          <input class="btn btn-primary" type="button" onclick="restaurantToevoegen()" value="Voeg restaurant toe" />
+          <input class="btn btn-primary" type="button" onclick="maaltijdToevoegen()" value="Voeg maaltijd toe" />
         </div>
       </div>
     </div>
 
-    <div id="onzeuitkomst">
-      <div id="allerestaurantstabel"></div>
-    </div>
-
     <script>
-      toonallerestaurants();
+      vulAlleRestaurants();
     </script>
   </body>
 </html>

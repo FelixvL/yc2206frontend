@@ -17,6 +17,8 @@ function maaltijdToevoegen() {
   xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
       console.log("terug van server");
+
+      window.location.href = "maaltijden.html?id=" + maaltijd.restaurantId;
     }
   };
   xhr.open("POST", "http://localhost:8082/maaltijdinvoeren", true);
@@ -36,7 +38,6 @@ function maakMaaltijdTabel(tabelData) {
     <tr>
       <th>Naam</th>
       <th>Beschrijving</th>
-      <th>Calorieen</th>
       <th>Prijs</th>
       <th>Restaurant naam</th>
       <th></th>
@@ -48,11 +49,10 @@ function maakMaaltijdTabel(tabelData) {
     <tr>
     <td>${tabelData[x].naam}</td>
     <td>${tabelData[x].beschrijving}</td>
-    <td>${tabelData[x].calorieen}</td>
     <td>${tabelData[x].prijs}</td>
     <td>${tabelData[x].restaurantNaam}</td>
-    <td><input type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="verwijder"></td>
-    <td><input type=button onClick="parent.location='bestelling.html?mId='+ ${tabelData[x].id}" value='voeg toe aan bestelling'></td>
+    <td><input class="btn btn-danger" type="button" onclick="verwijderMaaltijd(${tabelData[x].id})" value="Verwijder"></td>
+    <td><input class="btn btn-primary" type=button onClick="parent.location='addbestelling.html?mId=' + ${tabelData[x].id} + '&id=' + restaurantId" value='Voeg toe aan bestelling'></td>
     </tr>`;
   }
   detabelString += "</table>";

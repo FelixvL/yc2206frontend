@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="klant.js"></script>
+    <script src="bestelling.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tabel.css" />
   </head>
@@ -31,45 +32,33 @@
         </div>
       </nav>
     </header>
+
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h1>Klant aanmaken</h1>
+          <h1>Bestelling toevoegen</h1>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col-12 mb-3">
-          <label for="invoerveldnaam" class="form-label">Naam</label>
-          <input type="text" class="form-control" id="invoerveldnaam" placeholder="Vul hier je naam in." aria-describedby="naamHelp" />
+          <label for="invoerveldmaaltijd" class="form-label">Maaltijd</label>
+          <select class="form-control" id="invoerveldmaaltijd" aria-describedby="maaltijdHelp"></select>
+          <div id="maaltijdHelp" class="form-text">Selecteer hier het maaltijd.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label for="invoerveldklant" class="form-label">Klant</label>
+          <select class="form-control" id="invoerveldklant" aria-describedby="klantHelp"></select>
+          <div id="klantHelp" class="form-text">Selecteer hier een klant.</div>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="invoerveldadres" class="form-label">Adres</label>
-            <input type="text" class="form-control" id="invoerveldadres" placeholder="Vul hier je adres in." aria-describedby="adresHelp" />
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="mb-3">
-            <label for="invoerveldemail" class="form-label">Email</label>
-            <input type="email" class="form-control" id="invoerveldemail" placeholder="Vul hier je email in." aria-describedby="emailHelp" />
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="mb-3">
-            <label for="invoerveldtelefoonnummer" class="form-label">Telefoonnummer</label>
-            <input
-              type="text"
-              class="form-control"
-              id="invoerveldtelefoonnummer"
-              placeholder="Vul hier je telefoonnummer in."
-              aria-describedby="telefoonnummerHelp"
-            />
+            <label for="invoerveldopmerking" class="form-label">Opmerking</label>
+            <textarea class="form-control" id="invoerveldopmerking" aria-describedby="opmerkingHelp"></textarea>
+            <div id="opmerkingHelp" class="form-text">Optioneel: Een opmerking over de bestelling.</div>
           </div>
         </div>
       </div>
@@ -78,17 +67,30 @@
           <input type="button" class="btn btn-danger" onclick="history.back()" value="Terug" />
         </div>
         <div class="col-6 text-right">
-          <input class="btn btn-primary" type="button" onclick="klantToevoegen()" value="Voeg klant toe" />
+          <input type="button" class="btn btn-primary" onclick="bestellingToevoegen()" value="Toevoegen" />
         </div>
       </div>
     </div>
-
-    <div>
-      <div id="alleklantentabel"></div>
-    </div>
-
-    <script>
-      toonalleklanten();
-    </script>
   </body>
+
+  <script>
+    // Initialisatie
+    var queryString = location.search;
+    let paramsBestelling = new URLSearchParams(queryString);
+
+    let kId = paramsBestelling.has("kId") ? paramsBestelling.get("kId") : 0;
+    let mId = paramsBestelling.has("mId") ? paramsBestelling.get("mId") : 0;
+
+    let maaltijdenAfter = () => {
+      document.getElementById("invoerveldmaaltijd").value = mId;
+    };
+
+    let klantenAfter = () => {
+      document.getElementById("invoerveldklant").value = kId;
+    };
+
+    // Vullen
+    vulAlleMaaltijden(maaltijdenAfter);
+    vulAlleKlanten(klantenAfter);
+  </script>
 </html>
