@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 h1 {
@@ -11,7 +11,7 @@ h1 {
 }
 
 .header {
-  background-color: orangered;
+  background-color: #74b49b;
 }
 
 .header__nav {
@@ -29,6 +29,7 @@ h1 {
 }
 
 .header__link:hover {
+  color: white;
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -54,7 +55,7 @@ h1 {
 
 .heading {
   font-weight: bold;
-  color: #ff4500;
+  color: #74b49b;
   padding: 1rem;
   border: 2px solid black;
 }
@@ -92,3 +93,12 @@ a:hover {
   flex-direction: column;
 }
 
+.btn-primary {
+  background-color: #74b49b;
+  border-color: #74b49b;
+}
+
+.btn-primary:hover {
+  background-color: rgba(96, 148, 129, 0.8);
+  border-color: rgba(96, 148, 129, 0.8);
+}

@@ -9,7 +9,7 @@
 }
 
 .overzichtTabel thead tr {
-  background-color: #ff4500;
+  background-color: #74b49b;
   color: #ffffff;
   text-align: left;
 }
@@ -29,5 +29,5 @@
 }
 
 .overzichtTabel tbody tr:last-of-type {
-  border-bottom: 2px solid #ff4500;
+  border-bottom: 2px solid #74b49b;
 }

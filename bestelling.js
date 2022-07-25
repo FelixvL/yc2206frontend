@@ -17,7 +17,7 @@ function bestellingToevoegen() {
     if (this.readyState == 4) {
       console.log("terug van server");
 
-      window.location.href="maaltijden.html?id=" + restaurantId;
+      window.location.href = "maaltijden.html?id=" + restaurantId;
     }
   };
   xhr.open("POST", "http://localhost:8082/bestellinginvoeren", true);

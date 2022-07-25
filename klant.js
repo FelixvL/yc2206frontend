@@ -47,8 +47,8 @@ function maakKlantTabel(tabelData) {
         <td>${tabelData[x].email}</td>
         <td>${tabelData[x].telefoonnummer}</td>
         <td> 
-        <input type="button" onclick="verwijderKlant(${tabelData[x].id})" value="verwijder"> 
         <input type="button" onclick="bekijkKlantBestellingen(${tabelData[x].id})" value="Bekijk bestellingen">
+        <button class="btn" type="button" onclick="verwijderKlant(${tabelData[x].id})" value="verwijder"><i class="fa fa-trash"></i></button>
         </td>
       </tr>
     </tbody>`;
