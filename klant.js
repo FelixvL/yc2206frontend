@@ -2,7 +2,7 @@ function klantToevoegen() {
   var klant = {};
   klant.naam = document.getElementById("invoerveldnaam").value;
   klant.adres = document.getElementById("invoerveldadres").value;
-  klant.email = document.getElementById("invoerveldemail").value == "1";
+  klant.email = document.getElementById("invoerveldemail").value;
   klant.telefoonnummer = document.getElementById("invoerveldtelefoonnummer").value;
 
   var klantJSON = JSON.stringify(klant);
