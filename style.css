@@ -102,3 +102,7 @@ a:hover {
   background-color: rgba(96, 148, 129, 0.8);
   border-color: rgba(96, 148, 129, 0.8);
 }
+
+.nieuweKlantKnop {
+  padding-top: 20px;
+}
