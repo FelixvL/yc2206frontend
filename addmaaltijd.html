@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Nieuwe maaltijd</title>
     <script src="maaltijden.js"></script>
     <link
       rel="stylesheet"
@@ -57,15 +57,6 @@
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="invoerveldcalorieen" class="form-label">Calorieen</label>
-            <input type="number" class="form-control" id="invoerveldcalorieen" aria-describedby="calorieenHelp" />
-            <div id="calorieenHelp" class="form-text">Vul de hoeveel calorieen in.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="mb-3">
             <label for="invoerveldprijs" class="form-label">Prijs</label>
             <input type="text" class="form-control" id="invoerveldprijs" aria-describedby="prijsHelp" />
             <div id="prijsHelp" class="form-text">Vul hier de prijs in.</div>
@@ -92,7 +83,18 @@
     </div>
 
     <script>
-      vulAlleRestaurants();
+      // Initialisatie
+      var queryString = location.search;
+      let paramsMaaltijd = new URLSearchParams(queryString);
+
+      let kId = paramsMaaltijd.has("rId") ? paramsBestelling.get("rId") : 0;
+
+      let restaurantAfter = () => {
+        document.getElementById("invoerveldrestaurant").value = rId;
+      };
+
+      // Vullen
+      vulAlleRestaurants(restaurantAfter);
     </script>
   </body>
 </html>

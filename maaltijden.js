@@ -8,7 +8,6 @@ function maaltijdToevoegen() {
   var maaltijd = {};
   maaltijd.naam = document.getElementById("invoerveldnaam").value;
   maaltijd.beschrijving = document.getElementById("invoerveldbeschrijving").value;
-  maaltijd.calorieen = document.getElementById("invoerveldcalorieen").value;
   maaltijd.prijs = document.getElementById("invoerveldprijs").value;
   maaltijd.restaurantId = document.getElementById("invoerveldrestaurant").value;
   var maaltijdJSON = JSON.stringify(maaltijd);
@@ -65,7 +64,7 @@ function verwijderMaaltijd(maaltijdid) {
   });
 }
 
-function vulAlleRestaurants() {
+function vulAlleRestaurants(afterFunction) {
   fetch("http://localhost:8082/overzichtrestaurants")
     .then((res) => res.json())
     .then((data) => {
@@ -78,5 +77,7 @@ function vulAlleRestaurants() {
 
         select.add(option);
       });
+
+      afterFunction();
     });
 }
